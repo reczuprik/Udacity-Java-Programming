@@ -19,6 +19,7 @@ public class Car
         milesDriven = milesDriven + distance;
         
         double gasConsumed = distance /milesPerGallon;
+        gasInTank=gasInTank-gasConsumed;
         int pixelsPerMile = 10;
         pic.translate(distance * pixelsPerMile, 0);
     }
