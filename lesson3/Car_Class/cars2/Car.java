@@ -5,15 +5,24 @@ public class Car
     private Picture pic;
     private double milesPerGallon;
 
-    public Car() // Discussed later
+    public Car(double mpg) // Discussed later
     {
         milesDriven = 0;
         gasInTank = 0;
-        milesPerGallon = 50;
+        milesPerGallon = mpg;
         pic = new Picture("car.jpg");
         pic.draw();
     }
-
+    
+    public Car(double mpg, String pictureFile) // Discussed later
+    {
+        milesDriven = 0;
+        gasInTank = 0;
+        milesPerGallon = mpg;
+        pic = new Picture(pictureFile);
+        pic.draw();
+    }
+    
     public void drive(double distance)
     {
         milesDriven = milesDriven + distance;
