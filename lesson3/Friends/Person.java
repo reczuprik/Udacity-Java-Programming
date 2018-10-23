@@ -2,17 +2,18 @@ public class Person
 {
     private String name;
     private String friends;
-    private int x;
-    private int y;
-    public Person (String aName, String pictureName, int xCoord, int yCoord)
+    private int xCoord;
+    private int yCoord;
+    public Person (String name, String pictureName, int xCoord, int yCoord)
     {
-        name = aName;
+        this.name = name;
         friends = "";
         Picture picture = new Picture(pictureName);
+        this.xCoord=xCoord;
+        this.yCoord=yCoord;
         picture.translate(xCoord, yCoord);
         picture.draw();
-        x=xCoord;
-        y=yCoord;
+      
     }
     
     public String getFriends()
@@ -23,9 +24,9 @@ public class Person
     public void addFriend(Person friend)
     {
         friends= friends +  friend.name + " ";
-        SmallCircle circle = new SmallCircle(x, y);
+        SmallCircle circle = new SmallCircle(this.xCoord, this.yCoord);
         circle.fill();
-        Line someLine = new Line (x, y, friend.x, friend.y);
+        Line someLine = new Line (this.xCoord, this.yCoord, friend.xCoord, friend.yCoord);
         someLine.draw();
     }
     
