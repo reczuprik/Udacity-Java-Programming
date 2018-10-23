@@ -2,8 +2,10 @@
 comment0.target=Person
 comment1.params=aName
 comment1.target=Person(java.lang.String)
-comment2.params=friend
-comment2.target=void\ addFriend(Person)
-comment3.params=nonFriend
-comment3.target=void\ unFriend(Person)
-numComments=4
+comment2.params=
+comment2.target=java.lang.String\ getFriends()
+comment3.params=friend
+comment3.target=void\ addFriend(Person)
+comment4.params=nonFriend
+comment4.target=void\ unFriend(Person)
+numComments=5
