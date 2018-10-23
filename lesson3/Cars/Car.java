@@ -4,7 +4,8 @@ public class Car
     private double gasInTank;
     private Picture pic;
     private double milesPerGallon;
-
+    
+    
     public Car(double mpg) // Discussed later
     {
         milesDriven = 0;
