@@ -30,6 +30,18 @@ public class Person
         someLine.draw();
     }
     
+    public void makeMutualFriend(Person friend)
+    {
+        this.addFriend(friend);
+        friend.addFriend(this);
+    }
+    
+    public void makeMutualUnFriend(Person nonFriend)
+    {
+        this.unFriend(nonFriend);
+        nonFriend.unFriend(this);
+    }
+    
     public void unFriend(Person nonFriend)
     {
         friends= friends.replace(nonFriend.name + " ","");
