@@ -14,6 +14,23 @@ public class Word
     */
     public String getPluralForm()
     {
+        int last = letters.length() - 1; 
+        if (is(last,"y") && isConsonant(last-1))
+        {
+            return letters.substring(0,last) + "ies";
+        }
+        //if (is(last,"y") && isVowel(last-1))
+        //{
+        //    return letters  + "s";
+        //}
+        if(is(last,"o") 
+            || is(last,"s") 
+            || (is(last-1,"s") && is(last,"h"))
+            || (is(last-1,"c") && is(last,"h")) )
+        {
+            return letters  + "es";
+        }
+        return letters + "s";
         // TODO: Complete this method
         // If the word ends in y preceded by a consonant you take away the y and add ies.
         // If the word ends in y preceded by a vowel, you just add an s.
