@@ -40,8 +40,21 @@ public class CreditCard
         while (n > 0)
         {
 
-            int digit = (int)(n % 10); //
-            sum = sum + digit;
+            count ++;
+            int digit = (int)(n % 10); // 
+            if (count % 2 == 1)
+            {
+                sum = sum + digit;
+            }
+            else if (digit < 5)
+            {
+                sum = sum + 2 * digit;
+            }
+            else
+            {
+                sum = sum + 2 * digit - 9;
+            }
+            
             n = n/10;
         }
 
