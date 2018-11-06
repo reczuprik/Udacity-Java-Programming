@@ -32,14 +32,22 @@
 public class Month
 {
     //instance variables
-
+    private int month ;
     /**
      * Contructs a Month
      * @param the month number. Must be 1 to 12. For any other number, the month number is set to 1
      */
     public Month(int theMonthNumber)
     {
-
+        if (theMonthNumber>12 || theMonthNumber<1)
+        {
+            month=1;
+        }
+        else
+        {
+            month=theMonthNumber;
+        }
+        
     }
 
     /**
@@ -48,8 +56,19 @@ public class Month
      */
     public String getMonthName()
     {
+        if (month == 1) {return "January";}
+        if (month == 2) {return "February";}
+        if (month == 3) {return "March";}
+        if (month == 4) {return "April";}
+        if (month == 5) {return "May";}
+        if (month == 6) {return "June";}
+        if (month == 7) {return "July";}
+        if (month == 8) {return "August";}
+        if (month == 9) {return "September";}
+        if (month == 10) {return "October";}
+        if (month == 11) {return "November";}
 
-        return null;
+        return "December";
     }
 
     /**
@@ -58,7 +77,18 @@ public class Month
      */
     public int getNumberOfDays()
     {
-
-        return 0;
+        if (month == 1 ||month == 3 || month == 5|| month == 7|| month == 8||month == 10 ||month == 12)
+        {
+        return 31;
+        } 
+        else if (month==2)
+        {
+            return 28;
+        }
+        else
+        {
+            return 30;
+        }
+        
     }
 }

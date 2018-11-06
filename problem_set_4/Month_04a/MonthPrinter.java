@@ -37,8 +37,23 @@ public class MonthPrinter
     {
         Scanner in = new Scanner(System.in);
         System.out.print("Enter a month number (1 through 12) " );
-
-        int monthNumber = in.nextInt();
-        Month myMonth = new Month(monthNumber);
+        if (!in.hasNextInt())
+        {
+            System.out.println("Not an integer. Terminating");
+        }
+        else
+        {
+            
+            int monthNumber = in.nextInt();
+            Month myMonth = new Month(monthNumber);
+            if (monthNumber < 1 || monthNumber>12)
+            {
+                 System.out.println("Number must be 1 through 12");
+            }
+            else
+            {
+                System.out.println(myMonth.getMonthName()+" "+myMonth.getNumberOfDays());
+            }
+        }
     }
 }
