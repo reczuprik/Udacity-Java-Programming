@@ -22,7 +22,19 @@ public class Number
     public int countMatchingDigits(int digitToMatch)
     {
         // TODO: count and return the number of times the given digit appears in the number
-
+        long temp=number;
+        int counter=0;
+        while (temp>0)
+        {
+            int digit = (int)(temp % 10); 
+            temp=temp/10;
+            if (digit == digitToMatch)
+            {
+                counter++;
+            }
+            
+        }
+        return counter;
         // Hint: The last digit is (int)(numbers % 10).
     }
 }

@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=Number
+comment0.text=\r\n\ A\ class\ that\ represents\ a\ number\ and\ can\ report\r\n\ properties\ of\ the\ number.\r\n
+comment1.params=number
+comment1.target=Number(long)
+comment2.params=digitToMatch
+comment2.target=int\ countMatchingDigits(int)
+comment2.text=\r\n\ Returns\ the\ number\ of\ times\ digitToMatch\ appears\r\n\ in\ this\ number.\r\n\ @param\ digitToMatch\ the\ digit\ to\ search\ for.\r\n\ \ \ must\ be\ at\ least\ 0\ and\ at\ most\ 9.\r\n\ @return\ number\ of\ occurrences\ of\ digitToMatch\r\n
+numComments=3
