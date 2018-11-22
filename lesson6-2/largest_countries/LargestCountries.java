@@ -3,19 +3,26 @@
 import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
+import javax.swing.*;    
+
+
 
 public class LargestCountries
 {
+
     public static void main(String[] args) throws FileNotFoundException
     {
+ 
         String filename = "population.txt";
         File inputFile = new File(filename);
-        Scanner in = new Scanner(inputFile);
+        JFileChooser chooser = new JFileChooser();
+        chooser.showOpenDialog(null);
+        Scanner in = new Scanner(chooser.getSelectedFile());
 
         String country = in.next();
         double population = in.nextDouble();
         double largest = population;
-
+        String largestCountryName = "";
         // TODO: Print the population and name of the country with largest population
 
         // HINT: What else do you need to remember?
@@ -27,10 +34,11 @@ public class LargestCountries
             population = in.nextDouble();
             if (population > largest)
             {
+                largestCountryName=country;
                 largest = population;
             }
         }
-        System.out.println("The country with the largest population is: " + "TODO");
+        System.out.println("The country with the largest population is: " +  largestCountryName);
         System.out.println("The largest population is: " + largest);
     }
 }
