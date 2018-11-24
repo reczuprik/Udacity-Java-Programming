@@ -25,7 +25,7 @@ public class Word
         {
             j--;
         }
-        text = s.substring(i, j);
+        text = s.substring(i, j+1);
     }
 
     /**
@@ -71,6 +71,11 @@ public class Word
                     insideVowelGroup = true;
                 }
             }
+            else
+            {
+                insideVowelGroup = false;
+            }
+                
         }
 
         // Every word has at least one syllable
