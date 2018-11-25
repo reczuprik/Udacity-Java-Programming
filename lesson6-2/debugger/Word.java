@@ -13,6 +13,10 @@ public class Word
     */
     public Word(String s)
     {
+        // YOUR CODE SOMEWHERE NEAR HERE
+        // The constructor currently cuts off the last letter 
+        // of the word. How would you fix that? 
+        // Hint: In the video you saw that i and j were calculated correctly. 
         text = s.toLowerCase();
         int i = 0;
 
@@ -26,6 +30,7 @@ public class Word
             j--;
         }
         text = s.substring(i, j+1);
+        
     }
 
     /**
