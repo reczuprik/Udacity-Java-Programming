@@ -6,7 +6,7 @@
 public class Assignment
 {
     private int priority;
-    public String name;
+    private String name;
     private Photographer photographer =  new Photographer("");
     public Assignment(int priority, String description)
     {
@@ -33,6 +33,10 @@ public class Assignment
     public void setPhotographer(Photographer photographer)
     {
         this.photographer=photographer;
+    }
+    public Photographer returnPhotographer()
+    {
+         return this.photographer;
     }
     public String returnPhotographerName()
     {

@@ -38,7 +38,7 @@ public class Photographer
         return this.name;
     }
     
-    private String takePicture(String description)
+    public String takePicture(String description)
     {
         return photos.get(description);
     }

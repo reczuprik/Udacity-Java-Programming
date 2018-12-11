@@ -50,7 +50,6 @@ public class Manager
         // photographer who was hired first, then the next highest priority
         // assignment to the next photographer.
 
-        System.out.println("Size of new tasks " + NewAssignments.size());
         for (Photographer photographer : photographers) 
         {
             if (NewAssignments.size()>0){
@@ -64,18 +63,16 @@ public class Manager
                         maxprio=NewAssignments.get(i).returnPriority();
                     }
                 }
-                
+
                 Assignment doneAssingment=NewAssignments.remove(maxPrioID);
                 doneAssingment.setPhotographer(photographer);
                 DoneAssignments.add(doneAssingment);
-                System.out.println("DEsc " + doneAssingment.returnDescription() 
-                    +"photographer " + doneAssingment.returnPhotographerName() );
+
             }
-            //System.out.println(NewAssignments.get(i).name);
+
         }
     }
 
- 
     /**
      * A Customer came up with a new assignment. The manager should
      * add it to the to-do list so that next time it's time to give
@@ -94,7 +91,23 @@ public class Manager
      */
     public void checkPortfolio()
     {
+        int previousx=0;
+        int counter =0;
+        for (int i=0; i<DoneAssignments.size();i++)
+        {               
 
+            Picture pic = new Picture();
+            pic.load( DoneAssignments.get(i).returnPhotographer().takePicture(DoneAssignments.get(i).returnDescription()));
+            if (i>0)
+            {//kell translate
+                pic.translate(previousx,0);
+            }
+            pic.draw();
+            Text text = new Text(pic.getX(),pic.getMaxY(),DoneAssignments.get(i).returnPhotographerName());
+            text.draw();
+            previousx=pic.getMaxX();
+
+        }
         // YOUR CODE HERE
         // You may need to display all the finished work when
         // this method is called, or you may have been displaying
