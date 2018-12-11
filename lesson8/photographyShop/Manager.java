@@ -16,7 +16,6 @@ public class Manager
  
     public Manager()
     {
-
         // YOUR CODE HERE
         // How do you need to initialize the instance variables?
         photographers = new ArrayList<Photographer>();
@@ -28,8 +27,10 @@ public class Manager
      */
     public void hire(String photographer)
     {
+        Photographer photogr = new Photographer(photographer);
         // YOUR CODE HERE
         // How will you keep track of the photographers you have hired?
+        photographers.add(photogr);
     }
 
     /**

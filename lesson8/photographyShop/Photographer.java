@@ -18,9 +18,10 @@ import java.io.FileNotFoundException;
 public class Photographer
 {
     private Map<String, String> photos;
-
-    public Photographer()
+    private String name;
+    public Photographer(String name)
     {
+        this.name=name;
         photos = new HashMap(); // An important line. Must go in the constructor.
         readPhotos(); // A very important line. this must go in the Photographer
         // constructor so that the photographer will be able to take Pictures.
