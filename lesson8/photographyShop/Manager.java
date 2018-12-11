@@ -10,11 +10,17 @@ public class Manager
 {
     // YOUR CODE HERE
     // What does the manager need to remember to do his/her job?
-
+    private ArrayList<Assignment> assignments;
+     
+    private ArrayList<Photographer> photographers; 
+ 
     public Manager()
     {
+
         // YOUR CODE HERE
         // How do you need to initialize the instance variables?
+        photographers = new ArrayList<Photographer>();
+        assignments = new ArrayList<Assignment>();
     }
 
     /**

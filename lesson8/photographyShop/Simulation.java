@@ -38,7 +38,7 @@ public class Simulation
                 {
                     String photographer = hireMatcher.group(1);
                     manager.hire(photographer); // Time to hire a photographer.
-                }
+                }  
                 else if (meetingMatcher.find())
                 {
                     manager.giveOutAssignments(); // Time to give out assignments.

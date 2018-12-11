@@ -6,7 +6,7 @@ public class SubstringPrinter
       Word word = new Word("rum");
       System.out.println(word.getSubstrings());   
       
-      word = new Word("Udacity");
+      word = new Word("thisisaverylongword");
       System.out.println(word.getSubstrings()); 
    }
 
