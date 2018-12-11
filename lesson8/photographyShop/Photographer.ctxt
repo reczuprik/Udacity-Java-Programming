@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=Photographer
+comment1.params=name
+comment1.target=Photographer(java.lang.String)
+comment2.params=description
+comment2.target=java.lang.String\ takePicture(java.lang.String)
+comment2.text=\r\n\ A\ helper\ method\ you\ will\ need\ to\ use.\r\n\r\n\ @param\ description\ the\ description\ of\ the\ desired\ photo.\r\n\ @return\ the\ name\ of\ a\ file\ with\ a\ photo\ matching\ the\ description.\r\n
+comment3.params=
+comment3.target=void\ readPhotos()
+comment3.text=\r\n\ Don't\ look\ too\ hard\ at\ this\ method.\ this\ is\ how\ the\ photographer\ will\r\n\ be\ able\ to\ return\ a\ photo\ file\ name\ given\ a\ description.\ There\ is\ a\r\n\ secret\ index\ in\ photos.txt\ that\ is\ read\ by\ this\ method.\ Ideally,\ this\r\n\ method\ would\ involve\ a\ photographer\ going\ out\ and\ taking\ a\ picture\ and\r\n\ putting\ it\ in\ the\ system.\ That\ would\ take\ a\ lot\ of\ time\ though,\ so\ instead\r\n\ the\ photos\ are\ already\ included.\r\n
+numComments=4

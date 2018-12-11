@@ -10,8 +10,8 @@ public class Manager
 {
     // YOUR CODE HERE
     // What does the manager need to remember to do his/her job?
-    private ArrayList<Assignment> assignments;
-     
+    private ArrayList<Assignment> NewAssignments;
+    private ArrayList<Assignment> DoneAssignments;
     private ArrayList<Photographer> photographers; 
  
     public Manager()
@@ -19,7 +19,8 @@ public class Manager
         // YOUR CODE HERE
         // How do you need to initialize the instance variables?
         photographers = new ArrayList<Photographer>();
-        assignments = new ArrayList<Assignment>();
+        NewAssignments = new ArrayList<Assignment>();
+        DoneAssignments = new ArrayList<Assignment>();
     }
 
     /**
@@ -27,10 +28,10 @@ public class Manager
      */
     public void hire(String photographer)
     {
-        Photographer photogr = new Photographer(photographer);
+        
         // YOUR CODE HERE
         // How will you keep track of the photographers you have hired?
-        photographers.add(photogr);
+        photographers.add(new Photographer(photographer));
     }
 
     /**
@@ -58,6 +59,7 @@ public class Manager
     {
         // YOUR CODE HERE
         // How will you keep track of the unfinished assignments?
+        NewAssignments.add(new Assignment(priority,description));
     }
 
     /**
@@ -66,10 +68,15 @@ public class Manager
      */
     public void checkPortfolio()
     {
+        
         // YOUR CODE HERE
         // You may need to display all the finished work when
         // this method is called, or you may have been displaying
         // the photos as you went. If you have already displayed
         // the photos, there is no need to do anything here.
+        for (int i = 0; i < photographers.size(); i++)
+        {
+              System.out.println(photographers.get(i).name);
+        }
     }
 }

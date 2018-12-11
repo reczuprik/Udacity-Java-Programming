@@ -18,7 +18,7 @@ import java.io.FileNotFoundException;
 public class Photographer
 {
     private Map<String, String> photos;
-    private String name;
+    public String name;
     public Photographer(String name)
     {
         this.name=name;

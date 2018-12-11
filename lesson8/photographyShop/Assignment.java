@@ -5,5 +5,13 @@
 
 public class Assignment
 {
-
+    private int priority;
+    private String name;
+    
+    public Assignment(int priority, String description)
+    {
+        this.priority=priority;
+        this.name=description;
+    }
+    
 }
