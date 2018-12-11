@@ -2,4 +2,14 @@
 comment0.target=Assignment
 comment1.params=priority\ description
 comment1.target=Assignment(int,\ java.lang.String)
-numComments=2
+comment2.params=priority\ description\ photographer
+comment2.target=Assignment(int,\ java.lang.String,\ Photographer)
+comment3.params=
+comment3.target=int\ returnPriority()
+comment4.params=
+comment4.target=java.lang.String\ returnDescription()
+comment5.params=photographer
+comment5.target=void\ setPhotographer(Photographer)
+comment6.params=
+comment6.target=java.lang.String\ returnPhotographerName()
+numComments=7

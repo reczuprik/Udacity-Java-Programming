@@ -18,7 +18,7 @@ import java.io.FileNotFoundException;
 public class Photographer
 {
     private Map<String, String> photos;
-    public String name;
+    private String name;
     public Photographer(String name)
     {
         this.name=name;
@@ -33,6 +33,11 @@ public class Photographer
      * @param description the description of the desired photo.
      * @return the name of a file with a photo matching the description.
      */
+    public String returnName()
+    {
+        return this.name;
+    }
+    
     private String takePicture(String description)
     {
         return photos.get(description);

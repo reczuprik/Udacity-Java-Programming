@@ -1,5 +1,3 @@
 #BlueJ class context
 comment0.target=Blank
-comment1.params=photographers
-comment1.target=void\ printOutArrayListOfPhotographers(java.util.ArrayList)
-numComments=2
+numComments=1

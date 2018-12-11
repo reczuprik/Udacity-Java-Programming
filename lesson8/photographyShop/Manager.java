@@ -13,7 +13,7 @@ public class Manager
     private ArrayList<Assignment> NewAssignments;
     private ArrayList<Assignment> DoneAssignments;
     private ArrayList<Photographer> photographers; 
- 
+
     public Manager()
     {
         // YOUR CODE HERE
@@ -28,7 +28,7 @@ public class Manager
      */
     public void hire(String photographer)
     {
-        
+
         // YOUR CODE HERE
         // How will you keep track of the photographers you have hired?
         photographers.add(new Photographer(photographer));
@@ -43,13 +43,39 @@ public class Manager
      */
     public void giveOutAssignments()
     {
+
         // YOUR CODE HERE
         // Where did you store the photographers and unfinished assignments?
         // Assign the highest priority assignment first to the
         // photographer who was hired first, then the next highest priority
         // assignment to the next photographer.
+
+        System.out.println("Size of new tasks " + NewAssignments.size());
+        for (Photographer photographer : photographers) 
+        {
+            if (NewAssignments.size()>0){
+                int maxprio=0;
+                int maxPrioID=NewAssignments.size()-1;
+                for (int i = 0; i < NewAssignments.size(); i++)
+                {
+                    if (NewAssignments.get(i).returnPriority()>maxprio)
+                    {
+                        maxPrioID=i;
+                        maxprio=NewAssignments.get(i).returnPriority();
+                    }
+                }
+                
+                Assignment doneAssingment=NewAssignments.remove(maxPrioID);
+                doneAssingment.setPhotographer(photographer);
+                DoneAssignments.add(doneAssingment);
+                System.out.println("DEsc " + doneAssingment.returnDescription() 
+                    +"photographer " + doneAssingment.returnPhotographerName() );
+            }
+            //System.out.println(NewAssignments.get(i).name);
+        }
     }
 
+ 
     /**
      * A Customer came up with a new assignment. The manager should
      * add it to the to-do list so that next time it's time to give
@@ -68,15 +94,12 @@ public class Manager
      */
     public void checkPortfolio()
     {
-        
+
         // YOUR CODE HERE
         // You may need to display all the finished work when
         // this method is called, or you may have been displaying
         // the photos as you went. If you have already displayed
         // the photos, there is no need to do anything here.
-        for (int i = 0; i < photographers.size(); i++)
-        {
-              System.out.println(photographers.get(i).name);
-        }
+
     }
 }
