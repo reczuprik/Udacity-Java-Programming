@@ -1,3 +1,5 @@
+package com.udacity;
+
 public class Person
 {
     private String name;

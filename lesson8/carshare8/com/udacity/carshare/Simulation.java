@@ -1,6 +1,8 @@
+package com.udacity.carshare;
+
 import java.util.ArrayList;
 import java.util.Scanner;
-
+import com.udacity.Person;
 public class Simulation
 {
     private ArrayList<Car> cars;

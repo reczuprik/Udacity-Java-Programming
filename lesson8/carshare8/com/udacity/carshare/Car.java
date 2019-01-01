@@ -1,5 +1,7 @@
-import java.util.ArrayList;
+package com.udacity.carshare;
 
+import java.util.ArrayList;
+import com.udacity.Person;
 public class Car
 {
     private ArrayList<Person> passengers;
