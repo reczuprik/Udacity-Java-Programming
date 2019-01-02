@@ -41,9 +41,11 @@ import java.util.Random;
 public class Robot
 {
     // TODO: define other instance variables
-
+    private int x;
+    private int y;    
     private Random generator;
-
+    private Point start =new Point();
+    private Point position =new Point();
     /**
      * Constructor for objects of class Robot
      * @param theX the x coordinate
@@ -52,16 +54,43 @@ public class Robot
     public Robot(int theX, int theY)
     {
         // TODO: Complete the constructor
-
+        this.x=theX;
+        this.y=theY;
+        this.start.setLocation(theX, theY);
+        this.position.setLocation(theX, theY);
         generator = new Random();
         generator.setSeed(12345);  //do not change this statement
+
     }
 
     // TODO Supply getLocation
     public Point getLocation()
     {
-        return null;
+        return position.getLocation();
     }
     // TODO: Supply the methods of the Robot class
+    public void makeRandomMove()
+    {
+        //The makeRandomMove method moves the robot by one unit in a random direction.
+        // To choose the random direction, generate an int from 0 to 3. 
+        //  0 is toward the top of the window (north)
+        //  1 is towards the bottom of the window (south)
+        //  2 is towards the right side of the window (east)
+        //  3 is towards the left side of the window (west)
+        int randomNumber= generator.nextInt(4);
+         
+        switch (randomNumber) {
+            case 0:  this.y-- ; break;
+            case 1:  this.y++ ; break;
+            case 2:  this.x++ ; break;
+            case 3:  this.x-- ; break;
+        }
+        this.position.setLocation(x,y);
+                                                
+    }
+    public double getDistanceFromStart()
+    {
+        return  this.position.distance(this.start);
+    }
 
 }

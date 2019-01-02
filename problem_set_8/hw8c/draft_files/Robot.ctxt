@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.target=Robot
+comment1.params=theX\ theY
+comment1.target=Robot(int,\ int)
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Robot\r\n\ @param\ theX\ the\ x\ coordinate\r\n\ @param\ theY\ the\ y\ coordinate\r\n
+comment2.params=
+comment2.target=java.awt.Point\ getLocation()
+comment3.params=
+comment3.target=void\ makeRandomMove()
+comment4.params=
+comment4.target=double\ getDistanceFromStart()
+numComments=5
