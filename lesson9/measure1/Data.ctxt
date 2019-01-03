@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.target=Data
+comment1.params=objects
+comment1.target=double\ average(Country[])
+comment1.text=\r\n\ \ \ \ \ \ \ Computes\ the\ average\ area\ of\ the\ given\ countries.\r\n\ \ \ \ \ \ \ @param\ objects\ an\ array\ of\ Country\ objects\r\n\ \ \ \ \ \ \ @return\ the\ average\ of\ the\ areas\r\n
+numComments=2

@@ -1,4 +1,5 @@
 #BlueJ class context
-comment0.params=seconds
-comment0.target=void\ move(int)
-numComments=1
+comment0.target=Moveable
+comment1.params=seconds
+comment1.target=void\ move(int)
+numComments=2

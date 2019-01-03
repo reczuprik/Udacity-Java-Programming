@@ -2,7 +2,7 @@
 // TODO: Make this ball drawable.
 // To draw it, simply fill the shape.
 
-public class Ball
+public class Ball implements Drawable
 {
     private Ellipse shape;
 
@@ -17,6 +17,10 @@ public class Ball
         final int DIAMETER = 40;
         shape = new Ellipse(xLeft, yTop, DIAMETER, DIAMETER);
         shape.setColor(color);
+    }
+    public void draw()
+    {
+        shape.fill();
     }
 
 }

@@ -24,7 +24,10 @@ public class ChoiceQuestion extends Question
     public void addChoice(String choice, boolean correct)
     {
         choices.add(choice);
-
+        if (correct)
+        {
+            this.setAnswer("" +choices.size());
+        }
         // TODO: If this is the correct choice,
         // set the choice number (1, 2, 3, 4) as the answer.
         // Tip #1: What's choices.size()?

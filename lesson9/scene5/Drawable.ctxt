@@ -1,4 +1,5 @@
 #BlueJ class context
-comment0.params=
-comment0.target=void\ draw()
-numComments=1
+comment0.target=Drawable
+comment1.params=
+comment1.target=void\ draw()
+numComments=2

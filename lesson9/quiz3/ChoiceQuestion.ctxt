@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.target=ChoiceQuestion
+comment0.text=\r\n\ \ \ A\ question\ with\ multiple\ choices.\r\n
+comment1.params=
+comment1.target=ChoiceQuestion()
+comment1.text=\r\n\ \ \ \ \ \ \ Constructs\ a\ choice\ question\ with\ no\ choices.\r\n
+comment2.params=choice\ correct
+comment2.target=void\ addChoice(java.lang.String,\ boolean)
+comment2.text=\r\n\ \ \ \ \ \ \ Adds\ an\ answer\ choice\ to\ this\ question.\r\n\ \ \ \ \ \ \ @param\ choice\ the\ choice\ to\ add\r\n\ \ \ \ \ \ \ @param\ correct\ true\ if\ this\ is\ the\ correct\ choice,\ false\ otherwise\r\n
+comment3.params=
+comment3.target=void\ display()
+numComments=4

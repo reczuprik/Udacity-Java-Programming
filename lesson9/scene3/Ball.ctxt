@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.target=Ball
+comment1.params=xLeft\ yTop\ color
+comment1.target=Ball(int,\ int,\ Color)
+comment1.text=\r\n\ \ \ \ \ \ \ Constructs\ a\ ball.\r\n\ \ \ \ \ \ \ @param\ xLeft\ the\ leftmost\ x-coordinate\ of\ this\ ball.\r\n\ \ \ \ \ \ \ @param\ yTop\ the\ topmost\ y-coordinate\ of\ this\ ball.\r\n\ \ \ \ \ \ \ @param\ color\ the\ color\ of\ this\ ball.\r\n
+comment2.params=
+comment2.target=void\ draw()
+numComments=3

@@ -1,6 +1,10 @@
 #BlueJ class context
-comment0.params=x\ y\ file
-comment0.target=Dog(int,\ int,\ java.lang.String)
-comment1.params=
-comment1.target=void\ draw()
-numComments=2
+comment0.target=Dog
+comment0.text=\r\n\ \ \ TODO\:\ Dogs\ should\ be\ moveable.\r\n\ \ \ They\ move\ one\ pixel\ downwards\ every\ second.\r\n
+comment1.params=x\ y\ file
+comment1.target=Dog(int,\ int,\ java.lang.String)
+comment2.params=
+comment2.target=void\ draw()
+comment3.params=seconds
+comment3.target=void\ move(int)
+numComments=4

@@ -1,10 +1,12 @@
 #BlueJ class context
-comment0.params=xLeft\ yTop
-comment0.target=Car(int,\ int)
-comment0.text=\n\ \ \ \ Constructs\ a\ car\ with\ a\ given\ top\ left\ corner.\n\ \ \ \ @param\ xLeft\ the\ x\ coordinate\ of\ the\ top\ left\ corner\n\ \ \ \ @param\ yTop\ the\ y\ coordinate\ of\ the\ top\ left\ corner\n
-comment1.params=seconds
-comment1.target=void\ move(int)
-comment2.params=
-comment2.target=void\ draw()
-comment2.text=\n\ \ \ \ \ \ \ Draws\ this\ car.\n
-numComments=3
+comment0.target=Car
+comment0.text=\r\nA\ car\ shape\ that\ can\ be\ positioned\ anywhere\ on\ the\ screen.\r\n
+comment1.params=xLeft\ yTop
+comment1.target=Car(int,\ int)
+comment1.text=\r\n\ \ \ \ Constructs\ a\ car\ with\ a\ given\ top\ left\ corner.\r\n\ \ \ \ @param\ xLeft\ the\ x\ coordinate\ of\ the\ top\ left\ corner\r\n\ \ \ \ @param\ yTop\ the\ y\ coordinate\ of\ the\ top\ left\ corner\r\n
+comment2.params=seconds
+comment2.target=void\ move(int)
+comment3.params=
+comment3.target=void\ draw()
+comment3.text=\r\n\ \ \ \ \ \ \ Draws\ this\ car.\r\n
+numComments=4

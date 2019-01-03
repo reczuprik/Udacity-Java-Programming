@@ -4,10 +4,11 @@ import java.util.ArrayList;
 /**
    A question with a numeric answer.
 */
-public class NumericQuestion
+public class NumericQuestion extends Question
 // TODO: Specify superclass
 {
     private double tolerance;
+    private double answer;
     // TODO: Provide any needed instance variables
 
     /**
@@ -23,7 +24,9 @@ public class NumericQuestion
 
     public void setAnswer(double number)
     {
+        answer=number;
         // TODO: Implement this method
+        
     }
 
     public boolean checkAnswer(String response)
@@ -33,6 +36,8 @@ public class NumericQuestion
         // containing digits and a decimal point
         // into a floating-point number. For example,
         // Double.parseDouble("3.14") is 3.14.
+        double responseAsNumber=Double.parseDouble(response);
+        return Math.abs(responseAsNumber-answer)<=tolerance;
     }
 }
 
