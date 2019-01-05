@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.target=DataMethods
+comment1.params=c
+comment1.target=int\ getLength(java.lang.Object)
+comment1.text=\r\n\ Gets\ the\ length\ of\ the\ object\ if\ it\ is\ a\ string\r\n\ @param\ c\ the\ object\ wehose\ length\ we\ want\r\n\ @return\ the\ length\ if\ the\ object\ is\ a\ string\ otherwise\ -1\r\n
+numComments=2

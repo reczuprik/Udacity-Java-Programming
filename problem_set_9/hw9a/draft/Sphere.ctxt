@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.target=Sphere
+comment1.params=
+comment1.target=Sphere()
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Sphere\r\n
+comment2.params=r
+comment2.target=Sphere(double)
+comment2.text=\r\n\ Constructs\ a\ Shpere\ with\ the\ given\ radius\r\n\ @param\ r\ the\ radius\r\n
+comment3.params=r
+comment3.target=void\ setRadius(double)
+comment4.params=
+comment4.target=double\ getRadius()
+comment5.params=
+comment5.target=double\ getVolume()
+comment6.params=
+comment6.target=double\ getSurfaceArea()
+numComments=7

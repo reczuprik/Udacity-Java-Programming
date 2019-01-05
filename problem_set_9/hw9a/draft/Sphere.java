@@ -1,7 +1,7 @@
 // formulas for surface area and volume
 // http://math.about.com/od/formulas/ss/surfaceareavol.htm
 //
-// TODO: complete the code so that Shpere implements the GeometricSolid interface
+// TODO: complete the code so that Sphere implements the GeometricSolid interface
 //
 public class Sphere implements GeometricSolid
 {
@@ -16,7 +16,7 @@ public class Sphere implements GeometricSolid
     }
 
     /**
-     * Constructs a Sphere with the given radius
+     * Constructs a Shpere with the given radius
      * @param r the radius
      */
     public Sphere( double r)
@@ -35,5 +35,12 @@ public class Sphere implements GeometricSolid
     }
 
     //other methods
-
+    public double getVolume()
+    {
+        return (radius*radius*radius*Math.PI)*4/3;
+    }
+    public double getSurfaceArea()
+    {
+        return (radius*radius*Math.PI)*4;
+    }
 }

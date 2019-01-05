@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=InvertingAmplifier
+comment1.params=resistance1\ resistance2
+comment1.target=InvertingAmplifier(int,\ int)
+comment2.params=
+comment2.target=double\ getGain()
+numComments=3

@@ -1,6 +1,7 @@
-//Complete the  method getLength() which takes a Comparable object as its parameter.
-// If parameter references a String object, return the length of the String
-//otherwise return -1.
+// Complete the method getLength() which takes a Comparable object as its parameter.
+// If the parameter references a String object, return the length of the String
+// otherwise return -1.
+
 public class DataMethods
 {
     /**
@@ -8,6 +9,15 @@ public class DataMethods
      * @param c the object wehose length we want
      * @return the length if the object is a string otherwise -1
      */
-
-      // TODO: implement the method described by this javadoc
+    
+    public int getLength(Object c)
+    {
+        if(c instanceof String)  
+        {
+            String word =(String) c;
+            return word.length();
+        }
+        else{        return -1;}
+    }
+    // TODO: implement the method described by this javadoc
 }

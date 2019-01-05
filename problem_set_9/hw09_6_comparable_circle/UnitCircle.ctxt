@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.target=UnitCircle
+comment0.text=\r\n\ Represents\ a\ circle\ whose\ radius\ is\ multiples\ of\ the\ unit\ circle\ -\ a\ circle\ with\ radius\ 1\r\n
+comment1.params=radius
+comment1.target=UnitCircle(int)
+comment2.params=
+comment2.target=int\ getRadius()
+comment3.params=
+comment3.target=java.lang.String\ toString()
+comment4.params=otherObject
+comment4.target=int\ compareTo(java.lang.Object)
+numComments=5
