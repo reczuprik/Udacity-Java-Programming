@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.target=WordUtil
+comment1.params=text
+comment1.target=boolean\ isXOrZ(java.lang.String)
+comment1.text=\r\n\ Determines\ if\ the\ string\ contains\ either\ x\ or\ z\r\n\ @param\ text\ the\ string\ to\ test\ for\ x\ or\ z\r\n\ @return\ true\ if\ the\ string\ contains\ x\ or\ z,\ ignoring\ case.\r\n\ \ Otherwise\ false\r\n
+numComments=2
