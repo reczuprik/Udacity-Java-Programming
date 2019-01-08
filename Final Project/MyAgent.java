@@ -37,8 +37,34 @@ public class MyAgent extends Agent
      */
     public void move()
     {
-
+        //Starts in center
+ 
+        if ( isThisTheFirstMove())
+            {moveOnColumn(3);
+             return; 
+            }
+        moveOnColumn(1);
     }
+
+    /**
+     *Return if the agent has the first move 
+     *@return true if it is the first move(player starts)
+     */
+    public boolean  isThisTheFirstMove()
+    {
+        int sum = 0; 
+        for  (int i=0;i<myGame.getColumnCount()-1 ;i++)
+        {
+            if (myGame.getColumn(i).getSlot(myGame.getRowCount()-1).getIsFilled())
+            {
+                sum ++;
+            }
+        }
+
+        return (sum==0);
+    }
+
+
 
     /**
      * Drops a token into a particular column so that it will fall to the bottom of the column.
@@ -49,7 +75,7 @@ public class MyAgent extends Agent
     public void moveOnColumn(int columnNumber)
     {
         int lowestEmptySlotIndex = getLowestEmptyIndex(myGame.getColumn(columnNumber));   // Find the top empty slot in the column
-                                                                                                  // If the column is full, lowestEmptySlot will be -1
+        // If the column is full, lowestEmptySlot will be -1
         if (lowestEmptySlotIndex > -1)  // if the column is not full
         {
             Connect4Slot lowestEmptySlot = myGame.getColumn(columnNumber).getSlot(lowestEmptySlotIndex);  // get the slot in this column at this index
