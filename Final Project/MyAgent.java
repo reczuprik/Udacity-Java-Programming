@@ -1,5 +1,5 @@
 import java.util.Random;
-
+import java.util.Scanner;
 public class MyAgent extends Agent
 {
     Random r;
@@ -14,6 +14,7 @@ public class MyAgent extends Agent
     {
         super(game, iAmRed);
         r = new Random();
+
     }
 
     /**
@@ -37,20 +38,47 @@ public class MyAgent extends Agent
      */
     public void move()
     {
-        //Starts in center
+        //Starts in center not needed anymore
  
-        if ( isThisTheFirstMove())
-            {moveOnColumn(3);
-             return; 
+        // if (isThisTheFirstMove())
+            // {moveOnColumn(3);
+             // return; 
+            // }
+            int iCanWin=iCanWin();
+            int theyCanWin=theyCanWin();
+ 
+            int bestMove=columnWithMostOpp();
+
+            if(iCanWin !=-1)
+            {
+                System.out.println("iCanWin: " + iCanWin);
+                moveOnColumn(iCanWin);
             }
-        moveOnColumn(1);
+            else if (theyCanWin !=-1)
+            {
+                System.out.println("theyCanWin: " + theyCanWin);
+                moveOnColumn(theyCanWin);
+            }
+            else if (bestMove !=-1)
+            {
+                System.out.println("best move: " + bestMove);
+                moveOnColumn(bestMove );
+                
+            }
+            else {
+                moveOnColumn(randomMove());
+                System.out.println("randomMove");
+            }
+  
+ 
     }
 
     /**
      *Return if the agent has the first move 
+     *not needed anymore
      *@return true if it is the first move(player starts)
      */
-    public boolean  isThisTheFirstMove()
+    public boolean isThisTheFirstMove()
     {
         int sum = 0; 
         for  (int i=0;i<myGame.getColumnCount()-1 ;i++)
@@ -64,8 +92,124 @@ public class MyAgent extends Agent
         return (sum==0);
     }
 
+    public int columnWithMostOpp()
+    {
+        int mostOppColumn=-1;
+        int mostOpp=-1;
+        for (int column=0; column<myGame.getColumnCount();column++)
+        {
+            //myGame.highlightSlot(getLowestEmptyIndex(myGame.getColumn(column)),column);
+            if(getLowestEmptyIndex(myGame.getColumn(column))!=-1)
+            {
+                int opportunities=howManyWinnigOpportunity(getLowestEmptyIndex(myGame.getColumn(column)),column,myGame.getBoardMatrix(),getMyColor(),true);
+                //System.out.println("Number of Opportunity at column - " + column + " -: " + opportunities);
+                
+                if (mostOpp < opportunities)
+                {
+                    //System.out.println("Column " +  column + " set to move because opportunities: " + opportunities + " > most op: " + mostOpp);
+                    mostOpp=opportunities;
+                    mostOppColumn = column;
+                }
+            }
+            
+        }
+        return mostOppColumn;
+    }
+    public char getMyColor()
+    {
+        if (iAmRed)
+        {
+            return 'R';
+        }
+        else 
+        {
+            return 'Y';
+        }
+    }
+    public char getTheyColor()
+    {
+        if (!iAmRed)
+        {
+            return 'R';
+        }
+        else 
+        {
+            return 'Y';
+        }
+    }    
+    
+    public int howManyWinnigOpportunity(int rowNumber, int columnNumber,char[][] gameBoard,char checkColor, boolean checkBlank   )
+    {
+        int sum = 0;
+        char blankColor= 'B';
+        char ownColor=checkColor;
+        char[][] board = gameBoard;
+        if (!checkBlank)
+        {
+            board[rowNumber][columnNumber]=ownColor;
+        }
+        
 
+        //check that the slot how many winning opportunities have, Blank slot or own color shall be checked
+        //check the rows & columns
+        for(int i=0;i<4;i++)
+        {
+            //check rows
+             
+            if((rowNumber -i) > -1 && (rowNumber + 3 - i)<myGame.getRowCount())
+            {
+       
+                if((board[rowNumber -i][columnNumber] == ownColor|| (checkBlank && board[rowNumber -i][columnNumber] == blankColor)) && 
+                    (board[rowNumber+1-i][columnNumber] == ownColor|| (checkBlank && board[rowNumber+1-i][columnNumber] == blankColor)) && 
+                    (board[rowNumber+2-i][columnNumber] == ownColor|| (checkBlank && board[rowNumber+2-i][columnNumber] == blankColor)) &&
+                    (board[rowNumber+3-i][columnNumber] == ownColor|| (checkBlank && board[rowNumber+3-i][columnNumber] == blankColor)))
+                {
 
+                    sum++;
+                }
+            }
+            //check columns
+            if((columnNumber -i) > -1 && (columnNumber + 3 - i)<myGame.getColumnCount())
+            {
+       
+                if ((board[rowNumber][columnNumber + 0 - i] == ownColor || (checkBlank && board[rowNumber][columnNumber + 0 - i] == blankColor)) && 
+                    (board[rowNumber][columnNumber + 1 - i] == ownColor || (checkBlank && board[rowNumber][columnNumber + 1 - i] == blankColor)) && 
+                    (board[rowNumber][columnNumber + 2 - i] == ownColor || (checkBlank && board[rowNumber][columnNumber + 2 - i] == blankColor)) &&
+                    (board[rowNumber][columnNumber + 3 - i] == ownColor || (checkBlank && board[rowNumber][columnNumber + 3 - i] == blankColor)))
+                {
+                    sum++;
+                }
+            } 
+            //check the diagonal leftdown
+            if((columnNumber + 0 - i) > -1 && (columnNumber + 3 - i)<myGame.getColumnCount() && (rowNumber + 0 - i) > -1 && (rowNumber + 3 - i)<myGame.getRowCount())
+            {
+       
+                if ((board[rowNumber + 0 - i][columnNumber + 0 - i] == ownColor || (checkBlank && board[rowNumber + 0 - i][columnNumber + 0 - i] == blankColor)) && 
+                    (board[rowNumber + 1 - i][columnNumber + 1 - i] == ownColor || (checkBlank && board[rowNumber + 1 - i][columnNumber + 1 - i] == blankColor)) && 
+                    (board[rowNumber + 2 - i][columnNumber + 2 - i] == ownColor || (checkBlank && board[rowNumber + 2 - i][columnNumber + 2 - i] == blankColor)) &&
+                    (board[rowNumber + 3 - i][columnNumber + 3 - i] == ownColor || (checkBlank && board[rowNumber + 3 - i][columnNumber + 3 - i] == blankColor)))
+                {
+                    sum++;
+                }
+            } 
+            //check the diagonal rightdown
+             
+            if((columnNumber -3+i) > -1 && (columnNumber + i)<myGame.getColumnCount() && (rowNumber -i) > -1 && (rowNumber + 3 - i)<myGame.getRowCount())
+            {
+                
+                if ((board[rowNumber + 0 - i][columnNumber - 0 + i] == ownColor || (checkBlank && board[rowNumber + 0 - i][columnNumber - 0 + i] == blankColor)) && 
+                    (board[rowNumber + 1 - i][columnNumber - 1 + i] == ownColor || (checkBlank && board[rowNumber + 1 - i][columnNumber - 1 + i] == blankColor)) && 
+                    (board[rowNumber + 2 - i][columnNumber - 2 + i] == ownColor || (checkBlank && board[rowNumber + 2 - i][columnNumber - 2 + i] == blankColor)) &&
+                    (board[rowNumber + 3 - i][columnNumber - 3 + i] == ownColor || (checkBlank && board[rowNumber + 3 - i][columnNumber - 3 + i] == blankColor)))
+                {
+                    sum++;
+                }
+            }            
+
+        }
+        
+        return sum;
+    }
     /**
      * Drops a token into a particular column so that it will fall to the bottom of the column.
      * If the column is already full, nothing will change.
@@ -135,7 +279,26 @@ public class MyAgent extends Agent
      */
     public int iCanWin()
     {
-        return 0;
+
+        for (int column=0; column<myGame.getColumnCount();column++)
+        {
+            //myGame.highlightSlot(getLowestEmptyIndex(myGame.getColumn(column)),column);
+            if(getLowestEmptyIndex(myGame.getColumn(column))!=-1)
+            {
+                int winningmove=howManyWinnigOpportunity(getLowestEmptyIndex(myGame.getColumn(column)),column,myGame.getBoardMatrix(),getMyColor(),false);
+
+                if (winningmove>0)
+                {
+                    
+                    return column;
+                }
+                
+            }
+            
+        }
+        
+
+        return -1;
     }
 
     /**
@@ -149,7 +312,26 @@ public class MyAgent extends Agent
      */
     public int theyCanWin()
     {
-        return 0;
+        for (int column=0; column<myGame.getColumnCount();column++)
+        {
+            //myGame.highlightSlot(getLowestEmptyIndex(myGame.getColumn(column)),column);
+            if(getLowestEmptyIndex(myGame.getColumn(column))!=-1)
+            {
+                int losemove=howManyWinnigOpportunity(getLowestEmptyIndex(myGame.getColumn(column)),column,myGame.getBoardMatrix(),getTheyColor(),false);
+
+                if (losemove>0)
+                {
+                    
+                    return column;
+                }
+                
+            }
+            
+        }
+        
+        System.out.println();
+
+        return -1;
     }
 
     /**
@@ -161,4 +343,6 @@ public class MyAgent extends Agent
     {
         return "My Agent";
     }
+    
+    
 }
