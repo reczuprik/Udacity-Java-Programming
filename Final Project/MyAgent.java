@@ -1,5 +1,6 @@
 import java.util.Random;
 import java.util.Scanner;
+
 public class MyAgent extends Agent
 {
     Random r;
@@ -45,7 +46,7 @@ public class MyAgent extends Agent
              // return; 
             // }
             int iCanWin=iCanWin();
-            int theyCanWin=theyCanWin();
+            int theyCanWin=theyCanWin(myGame.getBoardMatrix());
  
             int bestMove=columnWithMostOpp();
 
@@ -92,7 +93,11 @@ public class MyAgent extends Agent
 
         return (sum==0);
     }
-
+    /**
+     *Return them column number where the possible 4s are the highest
+     *
+     *@return colunm ID, worst case -1 if not opportunity->random move will come
+     */
     public int columnWithMostOpp()
     {
         int mostOppColumn=-1;
@@ -104,8 +109,14 @@ public class MyAgent extends Agent
             {
                 int opportunities=howManyWinnigOpportunity(getLowestEmptyIndex(myGame.getColumn(column)),column,myGame.getBoardMatrix(),getMyColor(),true);
                 //System.out.println("Number of Opportunity at column - " + column + " -: " + opportunities);
+                //if extended with check the move dont cause lose
+                char[][] board= myGame.getBoardMatrix();
+
+                //System.out.println(Arrays.deepToString(board));
+                board[getLowestEmptyIndex(myGame.getColumn(column))][column]=getMyColor();
+                //System.out.println(Arrays.deepToString(board));
                 
-                if (mostOpp < opportunities)
+                if ((mostOpp < opportunities) && (theyCanWin(board)==-1))
                 {
                     //System.out.println("Column " +  column + " set to move because opportunities: " + opportunities + " > most op: " + mostOpp);
                     mostOpp=opportunities;
@@ -116,6 +127,11 @@ public class MyAgent extends Agent
         }
         return mostOppColumn;
     }
+    /**
+    *Return the Agent's color
+    *
+    *@return char of the Agent's color, 'R' if red and 'Y' if yellow
+    */
     public char getMyColor()
     {
         if (iAmRed)
@@ -127,6 +143,11 @@ public class MyAgent extends Agent
             return 'Y';
         }
     }
+    /**
+    *Return the opponent's color
+    *
+    *@return char of the opponent's color, 'R' if red and 'Y' if yellow
+    */
     public char getTheyColor()
     {
         if (!iAmRed)
@@ -138,8 +159,16 @@ public class MyAgent extends Agent
             return 'Y';
         }
     }    
-    
-    public int howManyWinnigOpportunity(int rowNumber, int columnNumber,char[][] gameBoard,char checkColor, boolean checkBlank   )
+    /**
+    *Return the number of 4s for a slot
+    *@param int columnNumber The column into belongs to slot which checked
+    *@param int rowNumber The row into belongs to slot which checked
+    *@param char[][] gameBoard  Board where to to check the opportunities
+    *@param char checkColor  which color shall be checked
+    *@param boolean checkBlank  which blank slots are counting or not
+    *@return sum of the possible 4s
+    */
+    public int howManyWinnigOpportunity(int rowNumber, int columnNumber,char[][] gameBoard,char checkColor, boolean checkBlank)
     {
         int sum = 0;
         char blankColor= 'B';
@@ -311,14 +340,15 @@ public class MyAgent extends Agent
      *
      * @return the column that would allow the opponent to win.
      */
-    public int theyCanWin()
+    public int theyCanWin(char[][] myBoard)
     {
+        char[][] board =myBoard;
         for (int column=0; column<myGame.getColumnCount();column++)
         {
             //myGame.highlightSlot(getLowestEmptyIndex(myGame.getColumn(column)),column);
             if(getLowestEmptyIndex(myGame.getColumn(column))!=-1)
             {
-                int losemove=howManyWinnigOpportunity(getLowestEmptyIndex(myGame.getColumn(column)),column,myGame.getBoardMatrix(),getTheyColor(),false);
+                int losemove=howManyWinnigOpportunity(getLowestEmptyIndex(myGame.getColumn(column)),column,board,getTheyColor(),false);
 
                 if (losemove>0)
                 {

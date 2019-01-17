@@ -18,6 +18,7 @@ public class Connect4Frame extends JFrame
     JButton newGameButton, nextMoveButton, playToEndButton;   // the buttons controlling the game
     JLabel updateLabel; // the status label describing the events of the game
     JLabel thisLabel;
+    int numberofGames = 20000;
     int winninggame;
     Random r;   // a random number generator to randomly decide who plays first
 
@@ -253,7 +254,7 @@ public class Connect4Frame extends JFrame
             }
             
         }
-        thisLabel.setText("number of winning: " + winninggame);
+        thisLabel.setText("number of winning: " + ((double)winninggame/numberofGames * 100));
         this.repaint();
         winninggame=0;
     }
@@ -287,7 +288,7 @@ public class Connect4Frame extends JFrame
      */
     public void playToEndButtonPressed()
     {
-        playToEnd(2000);
+        playToEnd(numberofGames);
     }
 
     /**
