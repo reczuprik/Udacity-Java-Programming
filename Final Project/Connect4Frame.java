@@ -17,6 +17,8 @@ public class Connect4Frame extends JFrame
     boolean redPlayerturn, gameActive;  // booleans controlling whose turn it is and whether a game is ongoing
     JButton newGameButton, nextMoveButton, playToEndButton;   // the buttons controlling the game
     JLabel updateLabel; // the status label describing the events of the game
+    JLabel thisLabel;
+    int winninggame;
     Random r;   // a random number generator to randomly decide who plays first
 
     /**
@@ -37,7 +39,7 @@ public class Connect4Frame extends JFrame
         this.yellowPlayer = yellowPlayer; //stores the yellow player
         gameActive = false;   // initially sets that no game is active
         r = new Random();   // creates the random number generator
-
+        winninggame=0;
         myPanel = new Connect4Panel(game);  // creates the panel for displaying the game
 
         newGameButton = new JButton("Start a New Game");    // creates the button for starting a new game
@@ -71,7 +73,9 @@ public class Connect4Frame extends JFrame
 
         updateLabel = new JLabel(redPlayer.toString() + " vs. " + yellowPlayer.toString()); // creates the status label
         updateLabel.setAlignmentX(Component.CENTER_ALIGNMENT);  // centers the status label
-
+        thisLabel= new JLabel("strin");
+        thisLabel.setAlignmentX(Component.CENTER_ALIGNMENT); 
+        thisLabel.setAlignmentY(Component.BOTTOM_ALIGNMENT);
         JPanel buttonPane = new JPanel();   // creates a pane for the buttons
         buttonPane.setLayout(new BoxLayout(buttonPane, BoxLayout.X_AXIS));  // sets the button pane to be horizontally oriented
         // adding and spacing out the buttons
@@ -91,6 +95,7 @@ public class Connect4Frame extends JFrame
         this.setResizable(false);   // makes the window not resizable
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);    // close the application when the window is closed
         this.setVisible(true);  // show the window
+        this.add(thisLabel);
     }
 
     /**
@@ -214,6 +219,45 @@ public class Connect4Frame extends JFrame
         }
     }
 
+    private void playToEnd(int i)
+    {
+        for (int k=0; k<i;k++)
+        {
+            newGame();
+            while (gameActive) // keep playing the next move until the game ends
+            {
+                nextMove();
+            }
+            char won = myGame.gameWon();
+            if (won != 'N') // when it ends, announce how it ended: win or draw
+            {
+                disableButtons();
+                if (myGame.gameWon() == 'R')
+                {
+                    alert(redPlayer.toString() + " wins!");
+                    winninggame++;
+                }
+                else if (myGame.gameWon() == 'Y')
+                {
+                    alert(yellowPlayer.toString() + " wins!");
+                }
+            }
+            else if (myGame.boardFull())
+            {
+                disableButtons();
+                alert("The game ended in a draw!");
+            }
+            else // if it didn't end in a win or draw, leave the error message u
+            {
+                disableButtons();
+            }
+            
+        }
+        thisLabel.setText("number of winning: " + winninggame);
+        this.repaint();
+        winninggame=0;
+    }
+
     /**
      * Reacts to the new game button being pressed.
      * 
@@ -221,6 +265,8 @@ public class Connect4Frame extends JFrame
      */    
     public void newGameButtonPressed()
     {
+        thisLabel.setText("number of winning: " + winninggame);
+        this.repaint();
         newGame();
     }
 
@@ -241,7 +287,7 @@ public class Connect4Frame extends JFrame
      */
     public void playToEndButtonPressed()
     {
-        playToEnd();
+        playToEnd(2000);
     }
 
     /**

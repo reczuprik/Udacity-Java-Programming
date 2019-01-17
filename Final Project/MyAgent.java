@@ -51,23 +51,24 @@ public class MyAgent extends Agent
 
             if(iCanWin !=-1)
             {
-                System.out.println("iCanWin: " + iCanWin);
+                //System.out.println("iCanWin: " + iCanWin);
                 moveOnColumn(iCanWin);
             }
             else if (theyCanWin !=-1)
             {
-                System.out.println("theyCanWin: " + theyCanWin);
+                //System.out.println("theyCanWin: " + theyCanWin);
                 moveOnColumn(theyCanWin);
             }
             else if (bestMove !=-1)
             {
-                System.out.println("best move: " + bestMove);
+                //System.out.println("best move: " + bestMove);
                 moveOnColumn(bestMove );
                 
             }
             else {
+                //System.out.println("randomMove");
                 moveOnColumn(randomMove());
-                System.out.println("randomMove");
+                
             }
   
  
@@ -328,9 +329,6 @@ public class MyAgent extends Agent
             }
             
         }
-        
-        System.out.println();
-
         return -1;
     }
 
